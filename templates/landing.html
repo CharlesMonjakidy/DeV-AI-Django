@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Dev-AI — Connexion{% endblock %}
+{% block heading %}Ton parcours avec l'IA{% endblock %}
+{% block content %}
+<section class="page-section landing">
+  <div class="welcome">
+    <div><span class="top-label">BIENVENUE SUR DEV-AI</span><h1>Analyse ton parcours <span>avec l'IA.</span></h1><p>Une application mobile moderne pour analyser tes données d'étude grâce au Machine Learning.</p>
+    <div class="landing-actions"><a class="primary-button" href="{% url 'account_login' %}">Se connecter</a><a class="secondary-button" href="{% url 'account_signup' %}">Créer un compte</a></div></div>
+    <div class="hero-ai">🤖</div>
+  </div>
+  <div class="feature-grid"><div><b>🔐 Comptes sécurisés</b><p>Connexion classique ou Google.</p></div><div><b>✅ Approbation</b><p>Chaque inscription attend ton approbation.</p></div><div><b>📱 Mobile</b><p>Installable comme une application.</p></div></div>
+</section>
+{% endblock %}

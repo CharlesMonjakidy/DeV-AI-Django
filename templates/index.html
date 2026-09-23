@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dev-AI — Dashboard{% endblock %}
+{% block heading %}Dashboard{% endblock %}
+{% block content %}
+<section id="dashboard" class="page-section">
+  <div class="welcome"><div><span class="top-label">BIENVENUE SUR DEV-AI</span><h1>Analyse ton parcours <span>avec l'IA.</span></h1><p>Entre tes données d'étude et obtiens une analyse expérimentale basée sur le Machine Learning.</p></div><div class="hero-ai">🤖</div></div>
+  <div class="stats-grid"><div class="stat-card"><small>DATASET</small><h3>{{ nombre_etudiants }}</h3><p>Étudiants dans les données</p></div><div class="stat-card"><small>MOYENNE</small><h3>{{ moyenne_revision }} h</h3><p>Temps de révision</p></div><div class="stat-card"><small>MOYENNE</small><h3>{{ moyenne_note }}/20</h3><p>Note précédente</p></div></div>
+  <div class="quick-action"><div><span class="top-label">MACHINE LEARNING</span><h2>Prêt à analyser ton profil ?</h2><p>Entre tes informations et laisse le modèle effectuer une prédiction.</p></div><a href="#analyse" class="primary-button">Lancer une analyse →</a></div>
+</section>
+
+<section id="analyse" class="page-section">
+<div class="section-heading"><span class="top-label">🤖 MACHINE LEARNING</span><h2>Analyse IA</h2><p>Donne quelques informations à Dev-AI.</p></div>
+<div class="analysis-layout">
+<form action="{% url 'predire' %}" method="post" class="form-card">{% csrf_token %}
+<div class="form-title"><span>📋</span><div><h3>Informations étudiant</h3><p>Remplis les champs ci-dessous.</p></div></div>
+<div class="input-group"><label>Heures de révision</label><input type="number" name="heures_revision" min="0" step="0.5" required></div>
+<div class="input-group"><label>Nombre d'exercices</label><input type="number" name="exercices" min="0" required></div>
+<div class="input-group"><label>Nombre d'absences</label><input type="number" name="absence" min="0" required></div>
+<div class="input-group"><label>Note précédente</label><input type="number" name="note_precedente" min="0" max="20" step="0.1" required></div>
+<button class="predict-button">🤖 Analyser avec l'IA</button>
+</form>
+<div class="result-panel">{% if last %}<span class="top-label">DERNIÈRE ANALYSE</span><div class="big-ai">🤖</div><h2>{{ last.resultat }}</h2><p>{{ last.conseil }}</p>{% else %}<div class="empty-result"><div>🤖</div><h3>Ton analyse apparaîtra ici</h3><p>Remplis le formulaire pour lancer le modèle.</p></div>{% endif %}</div>
+</div>
+</section>
+
+<section id="progression" class="page-section"><div class="section-heading"><span class="top-label">📊 DONNÉES</span><h2>Ton profil</h2><p>Les données sont enregistrées dans la base de données de ton compte.</p></div><div class="about-card"><div class="about-icon">🗄️</div><div><h2>Historique personnel</h2><p>Chaque analyse est liée à ton utilisateur. L'administrateur peut gérer les comptes et les données depuis Django Admin.</p></div></div></section>
+{% endblock %}

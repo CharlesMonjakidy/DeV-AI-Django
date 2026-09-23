@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Résultat — Dev-AI{% endblock %}
+{% block heading %}Résultat IA{% endblock %}
+{% block content %}
+<section class="page-section centered"><div class="result-panel result-large"><span class="top-label">RÉSULTAT</span><div class="big-ai">🤖</div><h1>{{ resultat }}</h1><p>{{ conseil }}</p><div class="result-data"><span>Révision: {{ heures_revision }} h</span><span>Exercices: {{ exercices }}</span><span>Absences: {{ absence }}</span><span>Note: {{ note_precedente }}/20</span></div><a class="primary-button" href="{% url 'home' %}#analyse">Nouvelle analyse</a></div></section>
+{% endblock %}

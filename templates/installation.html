@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Installer Dev-AI{% endblock %}
+{% block heading %}Installer l'application{% endblock %}
+{% block content %}
+<section class="page-section centered"><div class="form-card"><div class="big-ai">📱</div><span class="top-label">APPLICATION MOBILE</span><h2>Installer Dev-AI</h2><p>Sur Android/Chrome, ouvre le menu du navigateur puis choisis « Installer l'application » ou « Ajouter à l'écran d'accueil ». L'application fonctionne ensuite comme une app.</p><button id="installBtn" class="primary-button" hidden>⬇ Installer Dev-AI</button><p class="install-note">Si le bouton n'apparaît pas, utilise le menu ⋮ du navigateur.</p></div></section>
+<script>
+let deferredPrompt;
+const btn=document.getElementById("installBtn");
+window.addEventListener("beforeinstallprompt",(e)=>{e.preventDefault();deferredPrompt=e;btn.hidden=false;});
+btn?.addEventListener("click",async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt=null;btn.hidden=true;});
+</script>
+{% endblock %}

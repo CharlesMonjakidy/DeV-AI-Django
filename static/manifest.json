@@ -1,0 +1,10 @@
+{
+  "name":"Dev-AI Student AI",
+  "short_name":"Dev-AI",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#020617",
+  "theme_color":"#020617",
+  "description":"Application mobile Dev-AI pour analyser un parcours étudiant avec le Machine Learning.",
+  "icons":[{"src":"/static/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

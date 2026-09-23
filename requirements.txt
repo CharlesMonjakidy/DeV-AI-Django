@@ -1,0 +1,9 @@
+Django>=5.2,<6.0
+django-allauth>=65.11,<66
+dj-database-url>=2.3,<3
+whitenoise>=6.9,<7
+gunicorn>=23,<24
+psycopg[binary]>=3.2,<4
+pandas>=2.2,<3
+scikit-learn>=1.6,<2
+joblib>=1.4,<2
